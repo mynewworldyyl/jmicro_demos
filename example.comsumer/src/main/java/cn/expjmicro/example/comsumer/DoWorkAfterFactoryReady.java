@@ -104,21 +104,22 @@ public class DoWorkAfterFactoryReady implements IPostFactoryListener {
 					if(r.nextBoolean()) {
 						sayHello.helloJMAsync("Hello LOG: "+id)
 						.fail((code,result,cxt)->{
-							//System.out.println(JMicroContext.get().getLong(JMicroContext.LINKER_ID, 0L)+": "+result);
+							System.out.println(JMicroContext.get().getLong(JMicroContext.LINKER_ID, 0L)+": "+result);
 							LG.log(MC.LOG_ERROR, DoWorkAfterFactoryReady.class, code+":"+result);
 							JMicroContext.get().removeParam(JMicroContext.LINKER_ID);
 						}).success((result,cxt)->{
 							LG.log(MC.LOG_DEBUG, DoWorkAfterFactoryReady.class, result);
-							//System.out.println("Result: " +result);
+							System.out.println("Result: " +result);
 						});
 					}else {
 						sayHello.hiJMAsync(new Person(333,"presure testing"))
 						.fail((code,result,cxt)->{
 							LG.log(MC.LOG_ERROR, DoWorkAfterFactoryReady.class, code+":"+result);
 							JMicroContext.get().removeParam(JMicroContext.LINKER_ID);
+							System.out.println("Result: " +result);
 						}).success((result,cxt)->{
 							LG.log(MC.LOG_DEBUG, DoWorkAfterFactoryReady.class, "Result: " +result);
-							//System.out.println("Result: " +result);
+							System.out.println("Result: " +result);
 						});
 					}
 				} catch (Throwable e) {

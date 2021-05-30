@@ -3,13 +3,19 @@
     <parent>
          <groupId>cn.expjmicro</groupId>
 		 <artifactId>expjmicro.example</artifactId>
-		 <version>0.0.5-SNAPSHOT</version>
+		 <version>0.0.3-RELEASE</version>
     </parent>
     <artifactId>expjmicro.example.api</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>Jmicro example api testing</description>
     <dependencies>
+    	<dependency>
+			<groupId>cn.jmicro</groupId>
+			<artifactId>jmicro.agent</artifactId>
+			<scope>provide</scope>
+			<version>${project.version}</version>
+		</dependency>
        <dependency>
 			<groupId>cn.jmicro</groupId>
 			<artifactId>jmicro.api</artifactId>
