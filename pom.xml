@@ -17,6 +17,7 @@
     <modules>
 		<module>expjmicro.ps</module>
 		<module>expjmicro.tx</module>
+		<module>expjmicro.helloworld</module>
     </modules>
     
     <dependencies>

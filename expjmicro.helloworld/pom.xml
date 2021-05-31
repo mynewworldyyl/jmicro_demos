@@ -6,15 +6,18 @@
 		 <version>0.0.3-RELEASE</version>
     </parent>
     
-    <artifactId>expjmicro.ps</artifactId>
+    <artifactId>expjmicro.helloworld</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
-    <description>jmicro produce and comsumer demo</description>
+    <description>jmicro tx demo</description>
     
     <modules>
-        <module>expjmicro.ps.api</module>
-		<module>expjmicro.ps.comsumer</module>
-		<module>expjmicro.ps.provider</module>
+        <module>expjmicro.helloworld.api</module>
+		<module>expjmicro.helloworld.order</module>
+		<module>expjmicro.helloworld.payment</module>
+		<module>expjmicro.helloworld.shop</module>
+		<module>expjmicro.helloworld.client</module>
     </modules>
+    
     
 </project>

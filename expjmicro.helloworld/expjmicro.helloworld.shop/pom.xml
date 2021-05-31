@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	 <parent>
+         <groupId>cn.expjmicro</groupId>
+		 <artifactId>expjmicro.helloworld</artifactId>
+		 <version>0.0.3-RELEASE</version>
+    </parent>
+    
+    <artifactId>expjmicro.helloworld.shop</artifactId>
+	<packaging>jar</packaging>
+	<name>${project.artifactId}</name>
+	<description>Jmicro example service comsumer for testing</description>
+	
+	<dependencies>
+		<dependency>
+			<groupId>cn.expjmicro</groupId>
+			<artifactId>expjmicro.helloworld.api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>
