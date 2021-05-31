@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>cn.expjmicro</groupId>
-		<artifactId>expjmicro.example</artifactId>
-		<version>0.0.3-RELEASE</version>
+		<artifactId>expjmicro.ps</artifactId>
+		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>expjmicro.ps.provider</artifactId>
 	<packaging>jar</packaging>
@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>cn.expjmicro</groupId>
-			<artifactId>expjmicro.example.api</artifactId>
+			<artifactId>expjmicro.ps.api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		

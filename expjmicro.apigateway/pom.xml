@@ -3,7 +3,7 @@
     <parent>
          <groupId>cn.expjmicro</groupId>
 		 <artifactId>expjmicro.example</artifactId>
-		 <version>0.0.3-RELEASE</version>
+		 <version>0.0.5-SNAPSHOT</version>
     </parent>
     
     <artifactId>expjmicro.apigateway</artifactId>
@@ -15,7 +15,7 @@
         <module>expjmicro.apigateway.api</module>
 		<module>expjmicro.apigateway.shop</module>
 		<module>expjmicro.apigateway.client</module>
-		<module>expjmicro.apigateway.server</module>
+		<!-- <module>expjmicro.apigateway.server</module> -->
     </modules>
     
     

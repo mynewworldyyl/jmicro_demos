@@ -5,7 +5,7 @@
 	 <parent>
          <groupId>cn.expjmicro</groupId>
 		 <artifactId>expjmicro.timeout</artifactId>
-		 <version>0.0.3-RELEASE</version>
+		 <version>0.0.5-SNAPSHOT</version>
     </parent>
     
     <artifactId>expjmicro.timeout.client</artifactId>
