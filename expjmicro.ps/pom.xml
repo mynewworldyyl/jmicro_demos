@@ -1,22 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-         <groupId>cn.jmicro</groupId>
-		 <artifactId>jmicro.parent</artifactId>
+         <groupId>cn.expjmicro</groupId>
+		 <artifactId>expjmicro.example</artifactId>
 		 <version>0.0.3-RELEASE</version>
     </parent>
     
-    <groupId>cn.expjmicro</groupId>
-    <artifactId>expjmicro.example</artifactId>
+    <artifactId>expjmicro.ps</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
-    <description>jmicro hello demo</description>
-    <properties>
-        <skip_maven_deploy>false</skip_maven_deploy>
-    </properties>
+    <description>jmicro produce and comsumer demo</description>
+    
     <modules>
-		<module>expjmicro.ps</module>
-		<module>expjmicro.tx</module>
+        <module>expjmicro.ps.api</module>
+		<module>expjmicro.ps.comsumer</module>
+		<module>expjmicro.ps.provider</module>
     </modules>
     
     <dependencies>
@@ -25,12 +23,6 @@
 			<artifactId>jmicro.test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		 <dependency>
-			<groupId>cn.jmicro</groupId>
-			<artifactId>jmicro.all</artifactId>
-			<type>pom</type>
-		</dependency>
     </dependencies>
-   
     
 </project>
