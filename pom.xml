@@ -18,6 +18,9 @@
 		<module>expjmicro.ps</module>
 		<module>expjmicro.tx</module>
 		<module>expjmicro.helloworld</module>
+		<module>expjmicro.apigateway</module>
+		<module>expjmicro.timeout</module>
+		
     </modules>
     
     <dependencies>

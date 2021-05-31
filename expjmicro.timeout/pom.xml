@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+         <groupId>cn.expjmicro</groupId>
+		 <artifactId>expjmicro.example</artifactId>
+		 <version>0.0.3-RELEASE</version>
+    </parent>
+    
+    <artifactId>expjmicro.timeout</artifactId>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <description>jmicro timeout retry demo</description>
+    
+    <modules>
+        <module>expjmicro.timeout.api</module>
+		<module>expjmicro.timeout.shop</module>
+		<module>expjmicro.timeout.client</module>
+    </modules>
+    
+    
+</project>
