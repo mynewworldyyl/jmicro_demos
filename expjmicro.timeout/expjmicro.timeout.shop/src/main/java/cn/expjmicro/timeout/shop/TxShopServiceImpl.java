@@ -33,14 +33,14 @@ public class TxShopServiceImpl implements ITxShopService {
 	 * 
 	 */
 	@Override
-	@SMethod(timeout=1000,retryCnt=3,retryInterval=1000)
+	@SMethod(timeout=1000,retryCnt=2,retryInterval=1000)
 	public Resp<Boolean> buy(int goodId,int num) {
 		Resp<Boolean> r = new Resp<>(Resp.CODE_SUCCESS,true);
 		int st = ran.nextInt(6);
 		if(st > 0) {
 			logger.info("Sleep time: " + st+" Seconds idx: " +num);
 			try {
-				TimeUnit.SECONDS.sleep(st);
+				TimeUnit.SECONDS.sleep(60);
 			} catch (InterruptedException e) {
 				logger.error("",e);
 			}

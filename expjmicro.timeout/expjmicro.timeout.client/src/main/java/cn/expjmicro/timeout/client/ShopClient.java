@@ -27,31 +27,40 @@ public class ShopClient extends PostFactoryAdapter{
 	public void afterInit(IObjectFactory of) {
 		AtomicInteger ai = new AtomicInteger(0);
 		//为了不Block主线程，我们在此启动一个线程每间隔3秒调用一次商店提供的购买方法
-		new Thread(()->{
-				for(;true;) {
-						try {
-						//调用商店服务
-						int cnt = ai.getAndIncrement();
-						Resp<Boolean> rst = shop.buy(1, cnt);
-						if(rst.getCode() != Resp.CODE_SUCCESS) {
-							//系统组错误
-							logger.info(rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
-						}else if(rst.getData()) {
-							//业务购买失败
-							logger.info("Success idx: " + cnt);
-						}else {
-							//成功
-							logger.info("Fulure"+rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
-						}
-						try {
-							TimeUnit.SECONDS.sleep(1);
-						} catch (InterruptedException e) {
-							logger.error("",e);
-						}
-						}catch(Throwable e) {
-						logger.error(e.getMessage());
-					}
-				}
-		}).start();
+		/*new Thread(()->{
+			for(;true;) {
+				dowork(ai.getAndIncrement());
+			}
+		}).start();*/
+		
+		dowork(ai.getAndIncrement());
+	}
+
+	private void dowork(int cnt) {
+
+		try {
+		//调用商店服务
+		//int cnt = ai.getAndIncrement();
+		Resp<Boolean> rst = shop.buy(1, cnt);
+		if(rst.getCode() != Resp.CODE_SUCCESS) {
+			//系统组错误
+			logger.info(rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
+		}else if(rst.getData()) {
+			//业务购买失败
+			logger.info("Success idx: " + cnt);
+		}else {
+			//成功
+			logger.info("Fulure"+rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
 		}
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			logger.error("",e);
+		}
+		}catch(Throwable e) {
+		logger.error(e.getMessage());
+	}
+
+		
+	}
 }
