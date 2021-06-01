@@ -30,3 +30,4 @@ JMICRO_DEMO_HOME表示源代码所在的根目录，在系统环境变量中配�
 4. Redis和ZK是否成功启动并正常可用
 5. 欢迎联系 mynewworldyyl@gmail.com
 6. 头条 JMicro作者
+
