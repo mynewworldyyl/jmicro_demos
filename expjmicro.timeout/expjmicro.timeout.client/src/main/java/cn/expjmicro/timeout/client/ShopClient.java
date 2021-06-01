@@ -33,9 +33,13 @@ public class ShopClient extends PostFactoryAdapter{
 						//调用商店服务
 						int cnt = ai.getAndIncrement();
 						Resp<Boolean> rst = shop.buy(1, cnt);
-						if(rst.getCode() != Resp.CODE_SUCCESS) {
-							//系统组错误
-							logger.info(rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
+						if(rst == null || rst.getCode() != Resp.CODE_SUCCESS) {
+							if(rst != null) {
+								//系统组错误
+								logger.info(rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
+							} else {
+								logger.info("Timeout:" + cnt);
+							}
 						}else if(rst.getData()) {
 							//业务购买失败
 							logger.info("Success idx: " + cnt);

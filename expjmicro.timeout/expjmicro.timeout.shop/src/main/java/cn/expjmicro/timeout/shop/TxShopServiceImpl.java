@@ -28,19 +28,16 @@ public class TxShopServiceImpl implements ITxShopService {
 	
 	private Random ran = new Random(System.currentTimeMillis());
 	
-	/**
-	 * 0.0.3版本存在Bug，实际超时时间是 3*timeout，所以timeout=1000MS，实际上是3000MS
-	 * 
-	 */
 	@Override
-	@SMethod(timeout=1000,retryCnt=3,retryInterval=1000)
+	@SMethod(timeout=1000,retryCnt=3,retryInterval=100)
 	public Resp<Boolean> buy(int goodId,int num) {
 		Resp<Boolean> r = new Resp<>(Resp.CODE_SUCCESS,true);
 		int st = ran.nextInt(6);
 		if(st > 0) {
 			logger.info("Sleep time: " + st+" Seconds idx: " +num);
 			try {
-				TimeUnit.SECONDS.sleep(st);
+				TimeUnit.SECONDS.sleep(30);//睡30秒，让客户端超时并重试，只要为了验证超时重试逻辑
+				//TimeUnit.SECONDS.sleep(ran.nextInt(5));//睡30秒，随机睡0到5秒，测试并发表求时部份请求超时
 			} catch (InterruptedException e) {
 				logger.error("",e);
 			}
