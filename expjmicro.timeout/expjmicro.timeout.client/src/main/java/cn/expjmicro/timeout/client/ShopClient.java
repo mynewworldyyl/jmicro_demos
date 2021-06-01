@@ -38,29 +38,36 @@ public class ShopClient extends PostFactoryAdapter{
 
 	private void dowork(int cnt) {
 
-		try {
-		//调用商店服务
-		//int cnt = ai.getAndIncrement();
-		Resp<Boolean> rst = shop.buy(1, cnt);
-		if(rst.getCode() != Resp.CODE_SUCCESS) {
-			//系统组错误
-			logger.info(rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
-		}else if(rst.getData()) {
-			//业务购买失败
-			logger.info("Success idx: " + cnt);
-		}else {
-			//成功
-			logger.info("Fulure"+rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
-		}
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			logger.error("",e);
-		}
-		}catch(Throwable e) {
-		logger.error(e.getMessage());
-	}
+		new Thread(()->{
+				for(;true;) {
+						try {
+						//调用商店服务
+						int cnt = ai.getAndIncrement();
+						Resp<Boolean> rst = shop.buy(1, cnt);
+						if(rst == null || rst.getCode() != Resp.CODE_SUCCESS) {
+							if(rst != null) {
+								//系统组错误
+								logger.info(rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
+							} else {
+								logger.info("Timeout:" + cnt);
+							}
+						}else if(rst.getData()) {
+							//业务购买失败
+							logger.info("Success idx: " + cnt);
+						}else {
+							//成功
+							logger.info("Fulure"+rst.getMsg()+"," + rst.getCode()+",idx:"+cnt);
+						}
+						try {
+							TimeUnit.SECONDS.sleep(1);
+						} catch (InterruptedException e) {
+							logger.error("",e);
+						}
+						}catch(Throwable e) {
+						logger.error(e.getMessage());
+					}
+				}
+		}).start();
 
-		
 	}
 }
