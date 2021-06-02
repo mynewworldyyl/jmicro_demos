@@ -60,7 +60,7 @@ public class UploadJmicroResource {
 				socketClient.getService(IResourceResponsitory$Gateway$JMAsyncClient.class,
 						ApiGatewayClient.NS_REPONSITORY, "0.0.1");
 		
-		socketClient.loginJMAsync("jmicro", "0")
+		socketClient.loginJMAsync("test22", "123")
 		.success((act,cxt) -> {
 			System.out.println("Successfully login: " + act.getData().getActName()+",LKEY: " + act.getData().getLoginKey());
 			doUpload(jarfiles,rr,grp,ats);
